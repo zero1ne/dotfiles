@@ -72,7 +72,7 @@ for target, source in tasks.items():
 
 # if source does not exists...
     if not os.path.lexists(source):
-        print >> stderr, ("source %s : does not exists" % source)
+        print("source %s : does not exists" % source, file=stderr)
         continue
 
 # if --force option is given, delete the previously existing symlink
@@ -97,7 +97,7 @@ for target, source in tasks.items():
         os.symlink(source, target)
     except:
         pass
-    print >> stderr, ("%s : symlink created from '%s'" % (target, source))
+    print("%s : symlink created from '%s'" % (target, source), file=stderr)
 
 # install vim-plug
 os.system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim");
